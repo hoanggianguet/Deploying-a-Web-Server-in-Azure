@@ -3,6 +3,7 @@
     "value": "create-by"
   },
   "tagValue": {
-    "value": "giangh2"
+    "value": "giangh2",
+    "defaultValue": "production"
   }
 }

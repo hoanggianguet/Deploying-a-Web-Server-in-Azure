@@ -8,9 +8,9 @@
   "builders": [
     {
       "type": "azure-arm",
-      "client_id": "95cc6328-fa79-417e-97de-eead99a22620",
-      "client_secret": "flY8Q~yRvvV2m1f71a3Y2dELN.1HBs4bevpyVb9e",
-      "subscription_id": "17fa567b-e6eb-4e3c-a2e1-c445717eb2aa",
+      "client_id": "cb5e6105-9103-4824-af76-b3efb3c87f11",
+      "client_secret": "wQT8Q~FHaDwq2uM1Gen3ALMEhZ_VibS1YWP-4abX",
+      "subscription_id": "935af078-1669-488b-ae1c-5792c0fdb75d",
       "tenant_id": "f958e84a-92b8-439f-a62d-4f45996b6d07",
       "managed_image_resource_group_name": "Azuredevops",
       "managed_image_name": "packer-image",
