@@ -1,0 +1,3 @@
+az policy definition create --name tagging-policy --rules ./tagging-policy.json --params ./policy-definition-params.json --display-name "Enforce resource tagging policy" --description "This policy ensures all indexed resources in your subscription have tags and deny deployment if they do not." --mode Indexed
+
+az policy assignment create --name tagging-policy --policy tagging-policy --params ./policy-assignment-params.json --display-name "Require a tag on resources" --description "Enforces a required tag and its value. Does not apply to resource groups." 
