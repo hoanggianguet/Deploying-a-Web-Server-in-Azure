@@ -36,10 +36,9 @@ resource "azurerm_network_security_group" "main" {
 
   tags                = var.tags
 
-  security_rule {
-    name                       = "DenyInternetInboundTraffic"
-    description                = "Deny all Internet inbound traffic "
-    priority                   = 100
+   security_rule {
+    name                       = "DenyDirectAccessFromtheInternet"
+    priority                   = 1000
     direction                  = "Inbound"
     access                     = "Deny"
     protocol                   = "*"
@@ -48,16 +47,36 @@ resource "azurerm_network_security_group" "main" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-
-    security_rule {
-    name                       = "AllowVnetInboundTraffic"
-    description                = "Allow inbound connections to other VMs on the subnet"
-    priority                   = 200
+  security_rule {
+    name                       = "AllowInboundInternal"
+    priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "*"
+    source_address_prefix      = "10.0.2.0/24"
+    destination_address_prefix = "10.0.2.0/24"
+  }
+  security_rule {
+    name                       = "AllowOutboundInternal"
+    priority                   = 101
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "10.0.2.0/24"
+    destination_address_prefix = "10.0.2.0/24"
+  }
+  security_rule {
+    name                       = "AllowHTTPIncome"
+    priority                   = 102
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
