@@ -100,7 +100,6 @@ resource "azurerm_lb" "main" {
 
 resource "azurerm_lb_backend_address_pool" "main" {
     name                = "${var.prefix}-bap"
-    resource_group_name = azurerm_resource_group.main.name
     loadbalancer_id     = azurerm_lb.main.id
 }
 
